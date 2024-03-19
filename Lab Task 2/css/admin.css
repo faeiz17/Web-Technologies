@@ -1,0 +1,38 @@
+body{
+ 
+    font-family:  Helvetica;
+    background-color: white;
+    margin: 0px;
+    padding: opx;
+
+}
+.top-logo-bar{
+    height: 100px;
+
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+.top-logo-bar img{
+    height: 80px;
+}
+.insert-data-section{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+}
+.admin-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.insert-data-section input{
+    width: 300px;
+}

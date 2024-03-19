@@ -1,0 +1,130 @@
+a{
+    color: rgb(24, 20, 68);
+
+    text-decoration: none;
+}
+h2{
+    
+    color: lightblue;
+    transition: transform.2s;
+}
+h2:hover{
+    cursor: pointer;
+   transform: scale(1.25);
+}
+p{
+    text-align: justify;
+    margin-top: -20px;
+}
+
+h3{
+    font-style: italic;
+    font-weight: 500;
+    color: lightblue;
+    text-decoration: underline 2px ;
+
+}
+h4{
+    background-color: rgb(243, 239, 239);
+    text-decoration: underline 2px
+}
+
+body{
+    color: rgb(24, 20, 68);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    transition: background-image.5s ;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    height: 200px;
+    width: 100%;
+   
+    background-image: linear-gradient(to bottom,rgb(24, 20, 68),black) ;
+}
+.container:hover{
+    background-image: linear-gradient(to bottom,black,rgb(24, 20, 68)) ;
+}
+.topsection{
+   
+    gap: 350px;
+    display: grid;
+    grid-template-columns: 3fr 1fr ;
+    align-items:end;
+overflow: hidden;
+   
+}
+.image{
+    padding-top: -30px;
+    margin-top: -30px;
+    width: 130px;
+    overflow: hidden;
+    height: 130px;
+    
+    /* width: 130px; */
+    /* box-sizing: border-box; */
+    border-radius: 50%;
+}
+.topsection .top-section-info{
+    padding-left: 30px;
+    padding-top: 50px;
+}
+.image img{
+    transition: transform.2s;
+    padding-top: -30px;
+    margin-top: -30px;
+    height: auto;
+    width: 100%;
+}
+.image img:hover{
+    transform: scale(1.25);
+}
+.topsection h2{
+    margin-top: -2px;
+}
+.topsection h3{
+    margin-top: -20px;
+}
+.topsection h4{
+    background-color: transparent;
+    margin-top: -10px; 
+}
+.container1{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 150px;
+}
+.profile{
+   
+    text-align: justify;
+}
+ul{
+    text-align: justify;
+}
+.sub-project{
+    font-weight: 500;
+}
+.timeline{
+    margin-top: -20px;
+}
+.skills-Container{
+    margin-top: -25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.checked{
+    margin-bottom: -30px;
+}
+.skills-C2{
+    float: right;
+    width: 50%;
+}
+h4.top{
+    color: white;
+}
