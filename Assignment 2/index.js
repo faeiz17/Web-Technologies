@@ -100,30 +100,19 @@ function carousel() {
   setTimeout(carousel, 1500);}
 
   //video-scrubbing
-  const section = document.querySelector('section.vid');
-  const vid = document.querySelector('video.vid-scrub');
-  vid.pause();
+const section = document.querySelector('section.vid')
+const vid = document.querySelector('video.vid-scrub')
+vid.pause()
+const scroll =()=>{
   
-  let isScrolling = false;
-  
-  const scrollHandler = () => {
-    if (!isScrolling) {
-      isScrolling = true;
-      requestAnimationFrame(() => {
-        const distance = window.scrollY - section.offsetTop;
-        const total = section.clientHeight - window.innerHeight;
-        let percentage = distance / total;
-        percentage = Math.max(0, percentage);
-        percentage = Math.min(percentage, 1);
-        if (vid.duration > 0) {
-          vid.currentTime = vid.duration * percentage;
-        }
-        isScrolling = false;
-      });
-    }
-  };
-  
-  
-  
-  window.addEventListener('scroll', scrollHandler);
-  
+  const distance = window.scrollY- section.offsetTop
+  const total = section.clientHeight - window.innerHeight
+  let percentage = distance / total
+  percentage = Math.max(0,percentage)
+  percentage = Math.min(percentage,1)
+  if(vid.duration>0){
+    vid.currentTime= vid.duration * percentage
+  }
+
+}
+window.addEventListener('scroll',scroll)
