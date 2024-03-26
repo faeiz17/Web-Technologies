@@ -1,0 +1,150 @@
+<style>
+  .side-menu {
+    color: white;
+    height: 100%;
+    width: 400px;
+    position: fixed;
+    display: none;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    animation-name: sidemenu;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+
+}
+
+.side-menu div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+@keyframes sidemenu {
+    from {
+        left: -400px;
+    }
+
+    to {
+        left: 0px;
+    }
+}
+
+#closeButton {
+    width: 300px;
+    border: 2px solid transparent;
+    background-color: white;
+
+
+}
+
+#closeButton:hover {
+    color: white;
+    background-color: #720907;
+}
+
+#loginButton {
+    margin-top: 5px;
+    font-size: larger;
+    height: auto;
+    width: 300px;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+}
+
+#loginButton:hover {
+    border: 2px solid transparent;
+    background-color: var(--maincolor);
+    color: black;
+}
+</style>
+<header>
+  <div id="side-menu" class="side-menu">
+    <div>
+      <button id="closeButton">
+        <h3 id="close">close</h3>
+      </button>
+      <button id="loginButton">
+        <h4>Login</h4>
+      </button>
+
+    </div>
+  </div>
+  <div>
+    <section>
+      <div class="Complete-Documnet">
+
+        <div class="topsection ">
+
+
+          <div class="bgvideo">
+
+
+            <video class="videoactual" src= "<%= videoBackground %>" autoplay loop muted></video>
+            <div class="textonvideo">
+
+
+              <nav class="navbar">
+
+
+                <div>
+                  <h2><i class="fa fa-user" id="user" ></i></h2>
+                </div>
+                <div>
+                  <h2><img class="logo-img" src= ""></a>logo</h2>
+                </div>
+                <div>
+                  <h2><i class="fa fa-bars"></i></h2>
+                </div>
+
+
+
+
+              </nav>
+            </div>
+            <p>keep your essance
+            <div class="button1 ">
+              <button class="button ">Button</button>
+            </div>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+
+  </section>
+</header>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      function closeNav(){
+        $('#side-menu').fadeOut(500)
+        $('section').css('filter', 'blur(0px)');
+    
+      }
+      function openNav(){
+        $('#side-menu').show();
+        $('section').css('filter', 'blur(5px)');
+      }
+      $('#close').click(function (e) { 
+        e.preventDefault();
+        closeNav();
+        
+      });
+      $('#user').click(function (e) { 
+        e.preventDefault();
+        openNav();
+        
+      });
+    })      
+  </script>
