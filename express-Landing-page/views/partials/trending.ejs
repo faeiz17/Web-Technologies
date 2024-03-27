@@ -1,0 +1,100 @@
+<style>
+    .sec2 {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        
+        overflow: hidden;
+        margin-bottom: 50px;
+    
+    }
+    
+    @media screen and (max-width: 768px) {
+        .sec2 {
+            flex-direction: column;
+    
+            align-items: center;
+        }
+    }
+    
+    
+    .card-box {
+        overflow: hidden;
+    
+        height: 250px;
+        width: 325px;
+        position: relative;
+    
+        background: linear-gradient(white, white) padding-box,
+            linear-gradient(to bottom, var(--maincolor), var(--seccolor)) border-box;
+        border-radius: 10%;
+        border: 4px solid transparent;
+    }
+    
+    @media screen and (max-width: 480px) {
+        .card-box {
+            height: 300px;
+            /* Change the height */
+            width: 300px;
+            /* Change the width */
+        }
+        .sec2 {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+          
+        }
+    }
+    
+    .card-box h5 {
+        display: flex;
+        position: relative;
+        top: 70%;
+        left: 5%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:flex-start;
+        color: white;
+    }
+    
+    .card-box img {
+    
+        transition: transform.2s;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .card-box img:hover {
+        transform: scale(1.10);
+    }
+    
+</style>
+
+
+<section class="sec2 ">
+    <div class="card-box">
+
+      <img src="/images/macanelectric_252.jpg" alt="the new tycan">
+
+      <h5>The new electric macan <i class="fa fa-arrow-right " style="margin:auto "></i></h5>
+    </div>
+    <div class="card-box">
+      <img src="/images/macanelectric_252.jpg" alt="the new tycan">
+      <h5>EV is the past NOW <i class="fa fa-arrow-right " style="padding-left: 150px; "></i></h5>
+
+    </div>
+    <div class="card-box">
+
+
+      <img src="/images/macanelectric_252.jpg" alt="the new tycan">
+      <h5>Taycan From just $90,000 <i class="fa fa-arrow-right " style="padding-left: 150px; "></i></h5>
+    </div>
+
+  </section>

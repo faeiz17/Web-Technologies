@@ -1,5 +1,20 @@
 <style>
-  .side-menu {
+  .navbar {
+    color: white;
+
+    background-color: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: auto;
+    position: relative;
+}
+
+.side-menu {
     color: white;
     height: 100%;
     width: 400px;
@@ -16,6 +31,7 @@
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: both;
+  
 
 }
 
@@ -64,6 +80,93 @@
     background-color: var(--maincolor);
     color: black;
 }
+
+.logo-img {
+    height: 50px;
+    transition: transform .2s;
+    
+
+}
+
+
+.bgvideo {
+    width: 100%;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0px;
+    box-shadow: 0 0px 10px 0 var(--seccolor);
+
+}
+
+.videoactual {
+    top: 0;
+    left: 0;
+    height: 720px;
+    margin-bottom: 0px;
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+}
+
+.bgvideo p {
+    font-family: "SK Porsche";
+    color: white;
+    font-size: 50px;
+    position: relative;
+    margin-top: 25%;
+    margin-left: 5%;
+    margin-bottom: 2px;
+}
+
+.button1 button {
+  transition: all .2s;
+    padding: 14px 180px;
+    border: 2px solid white;
+    color: white;
+    position: relative;
+    font-size: 100%;
+    background-color: transparent;
+    margin-left: 5%;
+}
+.button1 button:hover{
+ 
+  border: 2px solid transparent;
+  background:
+            linear-gradient(to right, var(--maincolor), var(--seccolor))
+            border-box ;
+}
+@media screen and (max-width: 480px) {
+  .bgvideo p {
+    font-size: 20px;
+  }
+  .button1 button {
+    padding: 3px 5px;
+    font-size: smaller;
+  }
+  .bgvideo {
+    height: 480px;
+  }
+  .side-menu {
+    width: 200px;
+  }
+  #closeButton {
+    width: 100px;
+    font-size: 5px;
+  }
+  #loginButton {
+    width: 100px;
+    font-size: 5px;
+  }
+
+
+}
+.logo-img:hover{
+  transform: scale(1.30);
+}
+
+
+
 </style>
 <header>
   <div id="side-menu" class="side-menu">
@@ -98,7 +201,7 @@
                   <h2><i class="fa fa-user" id="user" ></i></h2>
                 </div>
                 <div>
-                  <h2><img class="logo-img" src= ""></a>logo</h2>
+                  <h2><img class="logo-img" src= "/images/logo.png"></a></h2>
                 </div>
                 <div>
                   <h2><i class="fa fa-bars"></i></h2>
@@ -111,7 +214,7 @@
             </div>
             <p>keep your essance
             <div class="button1 ">
-              <button class="button ">Button</button>
+              <button class="button "><h5>i am speed</h5></button>
             </div>
             </p>
           </div>

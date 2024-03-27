@@ -5,7 +5,16 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <%- include('./partials/header.ejs',{videoBackground: "videos/Porsche 911 GT3 (edit).mp4"})%>
+    <header>
+        <%- include('./partials/header.ejs',{videoBackground: "videos/Porsche 911 GT3 (edit).mp4"})%>
+    </header>
+
+    <section>
+        <%- include('./partials/trending.ejs')  %>
+    </section>
+    <section>
+        <%- include('./partials/models.ejs')  %>
+    </section>
 
 
     

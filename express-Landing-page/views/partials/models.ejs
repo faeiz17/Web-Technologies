@@ -1,0 +1,203 @@
+<style>
+    
+.models-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    margin: auto;
+
+
+    overflow: hidden;
+}
+
+.models-cardbox {
+    object-fit: cover;
+    overflow: hidden;
+    margin-top: 50px;
+    height: 700px;
+    width: 425px;
+    position: relative;
+
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(to bottom, var(--maincolor), var(--seccolor)) border-box;
+    border-radius: 5%;
+    border: 4px solid transparent;
+
+}
+
+
+
+.models-cardbox img {
+    
+    transition: transform 0.5s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.models .models-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white
+}
+
+.models-cardbox h2 {
+    position: relative;
+    margin-left: 20px;
+    color: white;
+    font-style: italic;
+}
+
+.models-cardbox img:hover {
+    transform: scale(1.10);
+}
+
+.models-cardbox .details-about-car {
+    margin: 10px 10px 0px;
+    padding-bottom: 0px;
+    border: 0px;
+    top: 50%;
+    position: relative;
+    font-size: x-large;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.models-cardbox .price-car {
+    margin: 10px 10px 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-left: 10px;
+    font-size: large;
+    top: 50%;
+    position: relative;
+    color: white;
+}
+
+.but-on-card {
+    margin: 10px;
+    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 50%;
+}
+
+.but-on-card button {
+    font-size: large;
+    font-weight: lighter;
+    padding: 10px 0px 10px 0px;
+}
+
+.but-on-card .but-card-1:hover {
+    opacity: 0.7;
+}
+
+.but-on-card .but-card-2 {
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.but-on-card .but-card-2:hover {
+    background-color: grey;
+
+}
+@media screen and (max-width: 480px) {
+    .models-section {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .models-cardbox {
+        height: 500px;
+        width: 300px;
+        font-size: smaller;
+    }
+    .models-cardbox .details-about-car, .models-cardbox .price-car,.but-on-card {
+        top: 25%;
+    }
+
+}
+
+</style>
+<section class="models">
+    <h2 class="models-heading"> Models</h2>
+    <div class="models-section">
+
+      <div class="models-cardbox">
+
+        <img src="/images/macanelectric_252.jpg" alt="the new tycan">
+        <h2>media/images/ </h2>
+        <p class="details-about-car">the mid-engine sports car for two made for pure driving pleasure</p>
+        <p class="price-car">From $ 68,000</p>
+        <div class="but-on-card">
+          <button class="but-card-1">build your media/images/</button>
+          <button class="but-card-2">all media/images/ models</button>
+        </div>
+      </div>
+
+      <div class="models-cardbox">
+        <img src="/images/macanelectric_252.jpg" alt="the new tycan">
+        <h2>media/images/ </h2>
+        <p class="details-about-car">the mid-engine sports car for two made for pure driving pleasure</p>
+        <p class="price-car">From $ 68,000</p>
+        <div class="but-on-card">
+          <button class="but-card-1">build your media/images/</button>
+          <button class="but-card-2">all media/images/ models</button>
+        </div>
+      </div>
+    </div>
+    <div class="models-section">
+      <div class="models-cardbox">
+
+        <img src="/images/macanelectric_252.jpg" alt="the new tycan">
+        <h2>media/images/ </h2>
+        <p class="details-about-car">the mid-engine sports car for two made for pure driving pleasure</p>
+        <p class="price-car">From $ 68,000</p>
+        <div class="but-on-card">
+          <button class="but-card-1">build your media/images/</button>
+          <button class="but-card-2">all media/images/ models</button>
+        </div>
+      </div>
+
+      <div class="models-cardbox">
+        <img src="/images/macanelectric_252.jpg" alt="the new tycan">
+        <h2>media/images/ </h2>
+        <p class="details-about-car">the mid-engine sports car for two made for pure driving pleasure</p>
+        <p class="price-car">From $ 68,000</p>
+        <div class="but-on-card">
+          <button class="but-card-1">build your media/images/</button>
+          <button class="but-card-2">all media/images/ models</button>
+        </div>
+      </div>
+    </div>
+    <div class="models-section">
+      <div class="models-cardbox">
+
+        <img src="/images/macanelectric_252.jpg" alt="the new tycan">
+        <h2>media/images/ </h2>
+        <p class="details-about-car">the mid-engine sports car for two made for pure driving pleasure</p>
+        <p class="price-car">From $ 68,000</p>
+        <div class="but-on-card">
+          <button class="but-card-1">build your media/images/</button>
+          <button class="but-card-2">all media/images/ models</button>
+        </div>
+      </div>
+
+      <div class="models-cardbox">
+        <img src="/images/macanelectric_252.jpg" alt="the new tycan">
+        <h2>media/images/ </h2>
+        <p class="details-about-car">the mid-engine sports car for two made for pure driving pleasure</p>
+        <p class="price-car">From $ 68,000</p>
+        <div class="but-on-card">
+          <button class="but-card-1">build your media/images/</button>
+          <button class="but-card-2">all media/images/ models</button>
+        </div>
+      </div>
+    </div>
+  </section>
