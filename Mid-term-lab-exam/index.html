@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Reuters</title>
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <p class="changeable-js">Exclusive news, data and analytics for financial market professionals</p>
+            <span>
+                <button>
+                    LSEG
+                </button>
+            </span>
+        </div>
+    </header>
+
+    <nav>
+        <img src="reuters1.png" alt="">
+        <div>world <i class="fa fa-caret-down"></i></div>
+        <div>market<i class="fa fa-caret-down"></i></div>
+        <div>business <i class="fa fa-caret-down"></i></div>
+        <div>sustainabality <i class="fa fa-caret-down"></i></div>
+        <div>legal<i class="fa fa-caret-down"></i></div>
+        <div>breaking news <i class="fa fa-caret-down"></i></div>
+        <div class="more">More<i class="fa fa-caret-down"></i></div>
+
+        <div><i class=" fa fa-list-alt"></i> Myview <i class="fa fa-caret-down"></i></div>
+        <div><span class ="fa fa-search"></i></div>
+        <div><button>Sign In </button></div>
+        <div><button>Register</button></div>
+    </nav>
+  
+        <h1 style="margin-left: 20px;">
+            Taiwan hit by strongest quake in 25 years, four deaths reported
+        </h1>
+        <section class="headlines">
+            <div style="width: 800px;">
+            <div class="img-div">
+                <img src="cons.png" alt="">
+
+            </div>
+            <p>Firefighters work at the site of a collapsed building in Hualien, Taiwan, April 3, 2024. Taiwan National Fire Agency/Handout</p>
+            <p>
+                A 7.2 magnitude earthquake rocked Taiwan on Wednesday, the strongest tremor to hit the island in at least 25 years, killing four people, injuring hundreds and sparking a tsunami warning for southern Japan and the Philippines that was later lifted.
+            </p>
+            <div class="line" style="width: 800px;">
+            
+            </div>
+        </div>
+        <div class="headlines-2">
+           <p>
+            world
+           </p>
+           <h4>
+            Russia says concert attack has sparked jump in army recruitment
+           </h4>
+           <p>10:57 AM GMT+5</p>
+           <div class="line">
+
+           </div>
+           <p>
+            Bussiness
+           </p>
+           <h4>
+            Exclusive: Disney prevails over Trian in board fight
+           </h4>
+           <p>29 min ago</p>
+           <div class="line">
+            
+           </div>
+           <p>
+            world
+           </p>
+           <h4>
+            NATO ministers mull 100 billion euro military fund for Ukraine
+           </h4>
+           <p>4:04 AM GMT+5</p>
+           <div class="line">
+            
+           </div>
+        </div>
+        </section>
+  <div style="margin-left: 20px;">
+    <p>
+       analysis
+       </p>
+       <h4>
+        Many Iranian options to retaliate against Israel, but all carry risk
+       </h4>
+       <p>11:12 AM GMT+5</p>
+       <span style="margin-left: 550px;"> <img src="image.png" alt=""></span>
+       <div class="line">
+       </div>
+  </div>
+   
+</body>
+<script>
+    var images = document.getElementsByTagName('img');
+    var changeableText = document.querySelector('.changeable-js');
+    
+    for (var i = 0; i < images.length; i++) {
+        images[i].addEventListener('mouseover', function(event) {
+            changeableText.textContent = "Image URL: " + event.target.src;
+        });
+    
+        images[i].addEventListener('mouseout', function() {
+            changeableText.textContent = "Exclusive news, data and analytics for financial market professionals";
+        });
+    }
+    
+</script>
+
+</html>
