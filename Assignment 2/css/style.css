@@ -5,17 +5,17 @@
 }
 
 body {
-    animation-delay: 2s;
+    /* animation-delay: 2s;
     animation-name: example;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-fill-mode: both;
     animation-duration: 5s;
-    animation-timing-function: linear;
+    animation-timing-function: linear; */
     font-family: Helvetica;
     padding: 0px;
     margin: 0px;
-    background: var(--bgcolor);
+    background: white;
     scroll-behavior: smooth;
 
 }
@@ -360,8 +360,10 @@ h6 {
 }
 
 .some-details {
+    margin: auto;
+    justify-content: center;
     align-items: center;
-
+    width: 90%;
     flex-direction: column;
     display: flex;
     color: white;
@@ -370,7 +372,7 @@ h6 {
 .porsche-center {
 
     margin: 10px;
-    margin-top: 150px;
+    margin-top: 50px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -401,6 +403,14 @@ h6 {
     color: white;
 
 
+}
+@media  screen and (max-width: 720px) {
+    .porsche-center-card{
+        width: 90%;
+    }
+    .porsche-center-details {
+        width: 250px;
+    }
 }
 
 .porsche-center-details h5,
@@ -448,6 +458,15 @@ h6 {
     display: flex;
     flex-direction: column;
     position: relative;
+}
+@media screen and (max-width:768px) {
+    .pre-own-main .pre-own-details{
+        left: 10px;
+    }
+    .pre-own-main img{
+        width: 300px;
+    }
+    
 }
 
 .social-media {
@@ -648,4 +667,43 @@ section.vid .vid-scrub{
 section.vid div.holder{
     position: sticky;
     top: 0px;
+}
+footer{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding-top: 50px;
+   
+    height: 720px;
+    width:auto;
+    background-color: #140f0f;
+}
+
+.container-footer{
+   color: white;
+    background-color: aqua;
+    height: 500px;
+    width: 95%;
+}
+.flag{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
+.contact-us{
+    
+    margin: auto;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    gap: 20px;
+}
+.contact-us div{
+    height: 300px;
+    width: 350px;
+    background-color: orange;
+    
 }
