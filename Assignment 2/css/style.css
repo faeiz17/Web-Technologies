@@ -15,7 +15,7 @@ body {
     font-family: Helvetica;
     padding: 0px;
     margin: 0px;
-    background: white;
+    background: red;
     scroll-behavior: smooth;
 
 }
@@ -26,7 +26,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "SK Porsche";
+    font-family: "SK Porsche"!important;
 }
 
 @keyframes example {

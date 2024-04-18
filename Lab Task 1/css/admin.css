@@ -36,3 +36,21 @@ body{
 .insert-data-section input{
     width: 300px;
 }
+.deletebtn{
+    padding: 14px 40px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    font-size: larger;
+    color: white;
+    
+    background-color: red;
+}
+.editbtn{
+    padding: 14px 40px;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    font-size: larger;
+    color: white;
+    
+    background-color: green;
+}
