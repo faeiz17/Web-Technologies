@@ -1,128 +1,173 @@
 body {
-   
     padding: 0px;
     margin: 0px;
     font-family: "Courier New", Courier, monospace;
-    
-   
     color: white;
 }
-h1,h2,h3,h4,h5,h6,p{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     margin: 0px !important;
     padding: 0px !important;
     font-weight: bold;
+}
 
-}
-.main-page{
-    
-    
-    height:1200px;
+.main-page {
+    height: fit-content;
+    /* height: 1200px; */
     width: 100%;
-    background-image: linear-gradient(to bottom,#780206 , #061161  );
-    
-   
+    background-image: linear-gradient(to bottom, #780206, #061161);
 }
-.nav-name{
+
+.nav-name {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     row-gap: 2px;
     justify-content: flex-start;
 }
- h2{
-    background: linear-gradient(90deg,#00ffff,#ff00c3);
+
+h2 {
+    background: linear-gradient(90deg, #00ffff, #ff00c3);
     -webkit-background-clip: text;
-    background-clip:text ;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid white;
+    /* The typwriter cursor */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    margin: 0;
+    line-height: 1;
+    /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em;
+    /* Adjust as needed */
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
 }
-.navbar{
-    
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
+
+
+/* The typewriter cursor effect */
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent
+    }
+    50% {
+        border-color: white;
+    }
+    100% {
+        border-color: transparent;
+    }
+}
+
+.navbar {
     padding-top: 20px;
     padding-inline: 50px;
     background-color: transparent;
     color: white;
 }
+
 .navbar-brand {
-    color: white ;
-}
-.navbar-toggler{
     color: white;
-    border:2px solid whitesmoke;
-}
-.navbar-toggler-icon{
-    background-image: white;
-}
-.nav-item a{
-    color: white;
-    
 }
 
+.navbar-toggler {
+    color: white;
+    border: 2px solid whitesmoke;
+}
+
+.navbar-toggler-icon {
+    background-image: white;
+}
+
+.nav-item a {
+    color: white;
+}
 
 .nav-link:hover {
     color: white;
     opacity: 0.7;
     text-decoration: underline;
-    text-decoration-color: blue; /* Change the color as needed */
-    text-decoration-thickness: 2px; /* Change the thickness as needed */
-    text-decoration-style: solid; /* Change the style as needed */
+    text-decoration-color: blue;
+    /* Change the color as needed */
+    text-decoration-thickness: 2px;
+    /* Change the thickness as needed */
+    text-decoration-style: solid;
+    /* Change the style as needed */
     text-underline-offset: 0.5em;
 }
-.dropdown-menu{
+
+.dropdown-menu {
     background-color: transparent;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover {
     background-color: transparent;
     color: white;
     opacity: 0.7;
 }
-.about-me{
-    
-    
+
+.about-me {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-
 }
+
 .profile-avatar {
     height: 30rem;
     width: 22rem;
-    overflow:visible;
+    overflow: visible;
 }
-.profile-avatar img{
+
+.profile-avatar img {
     height: auto;
     width: 100%;
     animation: imageFadeIn 3s ease 0s 1 normal forwards;
-    
-    
 }
-@keyframes imageFadeIn {
-	0% {
-		opacity: 0;
-		transform: translateX(-50px);
-	}
 
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
+@keyframes imageFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
-.about-me-box{
+
+.about-me-box {
     display: flex;
     flex-direction: column;
-
     margin-top: 100px;
     height: 300px;
     width: 600px;
-    background: rgba( 74, 144, 226, 0.25 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+    background: rgba( 74, 144, 226, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+    backdrop-filter: blur( 4px);
+    -webkit-backdrop-filter: blur( 4px);
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18);
 }
-.about-me-box{
+
+.about-me-box {
     margin-top: 0.9rem;
     display: flex;
     flex-direction: column;
@@ -130,16 +175,16 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     align-items: center;
     text-align: center;
     opacity: 0;
-    animation:  fadeIn 3s ease forwards;;
-
+    animation: fadeIn 3s ease forwards;
+    ;
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
     to {
         opacity: 1;
-    
     }
 }
 
@@ -150,41 +195,69 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .image-list li {
+}
+
+.image-list li {
     display: inline-block;
     margin: 10px;
     position: relative;
-  }
-  
-  .image-list li img {
+}
+
+.image-list li img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
-  }
-  
-  @keyframes wave {
+}
+
+@keyframes wave {
     0% {
-      transform: translateX(0);
+        transform: translateX(0);
     }
     50% {
-      transform: translateX(-5px);
+        transform: translateX(-5px);
     }
     100% {
-      transform: translateX(0);
+        transform: translateX(0);
     }
-  }
-  
-  .image-list li:nth-child(odd) {
+}
+
+.image-list li:nth-child(odd) {
     animation: wave 1s ease-in-out infinite;
-  }
-  
-  .image-list li:nth-child(even) {
-    animation: wave 1s ease-in-out infinite 0.5s; /* Delay the animation for even items */
-  }
-  
+}
 
+.image-list li:nth-child(even) {
+    animation: wave 1s ease-in-out infinite 0.5s;
+    /* Delay the animation for even items */
+}
 
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
+.skills-box {
+    padding-top: 20vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: row;
+    text-align: left;
+    gap: 100px;
+    margin-top: 2rem;
+    height: 60vh;
+    width: 90%;
+    background: rgba( 120, 2, 6, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+    backdrop-filter: blur( 4px);
+    -webkit-backdrop-filter: blur( 4px);
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18);
+}
+
+#progressBar {
+    transition: width 0.5s ease;
+}
