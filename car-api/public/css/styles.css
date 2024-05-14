@@ -1,0 +1,54 @@
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+}
+
+nav {
+    height: 100px;
+    width: auto;
+    display: flex;
+    background-color: black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav img {
+    height: 80px;
+}
+
+.card {
+    height: 400PX;
+    width: 400PX;
+    background-color: aquamarine;
+}
+
+.list-of-cars {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 600px;
+    gap: 10px;
+}
+
+.image-container-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    height: 200px;
+}
+
+.image-container-card img {
+    width: auto;
+    height: 200px;
+}
+
+.card .details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
