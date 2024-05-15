@@ -1,7 +1,7 @@
 <!-- views/cars.ejs -->
 <!-- Form for adding a new car -->
 <h2>Add New Car</h2>
-<form action="/cars/create" method="POST">
+<form action="/admin/cars/create" method="POST">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required><br>
     <label for="model">Model:</label>
@@ -11,7 +11,7 @@
     <label for="price">Price:</label>
     <input type="number" id="price" name="price" required><br>
     <label for="zto60">0-60 mph:</label>
-    <input type="number" id="zto60" name="zto60"><br>
+    <input type="text" id="zto60" name="zto60"><br>
     <label for="speed">Top Speed:</label>
     <input type="text" id="speed" name="speed"><br>
     <label for="image">Image URL:</label>
@@ -41,19 +41,45 @@
                 <img src="https://files.porsche.com/filestore/image/multimedia/none/jdp-2016-982-718-c7-modelimage-sideshot/model/1b1b5cb6-e874-11ea-80cd-005056bbdc38/porsche-model.png" alt="">
             </div>
             <div class="details">
-                <h3>cayman</h3>
-                <%= car.name %> -
-                    <%= car.model %> -
-                        <%= car.year %> -
-                            <%= car.price %> -
-                                <%= car.zto60 %> -
-                                    <%= car.speed %> -
+                <h5>cayman</h5>
+                <h5>
+                    <%= car.name %>
+                </h5>
+                <h5>
+                    <%= car.model %>
+                </h5>
+                <h5>
+                    <%= car.year %>
+                </h5>
+                <h5>
+                    <%= car.price %>
+                </h5>
+                <h5>
+                    <%= car.zto60 %>
+                </h5>
+                <h5>
+                    <%= car.speed %>
+                </h5>
+                <h5>
+                    <%= car.description %>
+                </h5>
+                <h5>
+                    <%= car.range %>
+                </h5>
+                <h5>
+                    <%= car.rearLuggage %>
+                </h5>
 
-                                        <%= car.description %> -
-                                            <%= car.range %> -
+
+                <form action="/admin/cars/delete/<%= car.id %> " method="POST" onsubmit="return confirmDelete()">
+
+                    <button type="submit">DELETE</button>
+                </form>
 
 
-                                                <%= car.rearLuggage %>
+
+                <a href="/admin/cars/edit/<%= car.id %> ">Edit</a>
+
 
             </div>
 
@@ -64,15 +90,6 @@
         </div>
 
 
-
-        <!-- <form action="/cars/delete/?_method=DELETE" method="POST" onsubmit="return confirmDelete()">
-       
-        <button type="submit">DELETE</button> -->
-        </form>
-
-
-        <!-- Edit button (you need to implement this separately) -->
-        <!-- <a href="/cars/edit/">Edit</a> -->
 
         <% } )%>
 

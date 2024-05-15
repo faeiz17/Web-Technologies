@@ -18,7 +18,7 @@ const carSchema = new mongoose.Schema({
         required: true
     },
     zto60: {
-        type: Number,
+        type: String,
         required: false
     },
     speed: {

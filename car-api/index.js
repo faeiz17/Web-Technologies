@@ -34,4 +34,7 @@ mongoose.connect(MONGOURL).then(() => {
     })
 }).catch(console.error());
 
-app.use("/cars", route)
+
+
+
+app.use("/", route)

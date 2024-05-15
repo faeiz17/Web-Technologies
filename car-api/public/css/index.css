@@ -1,0 +1,729 @@
+:root {
+    --maincolor: #d8ab23;
+    --seccolor: #720907;
+    --bgcolor: #140f0f;
+}
+
+body {
+    /* animation-delay: 2s;
+    animation-name: example;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    animation-duration: 5s;
+    animation-timing-function: linear; */
+    font-family: Helvetica;
+    padding: 0px;
+    margin: 0px;
+    background: white;
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "SK Porsche"!important;
+    padding: 0;
+    margin: 0;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+h1 {
+    animation: h1Animation 2s ease 0s infinite normal forwards;
+    background: #D8AB23;
+    background: radial-gradient(circle farthest-side at center center, #D8AB23 0%, #140F0F 50%, #B70E0B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes h1Animation {
+    0%,
+    100% {
+        transform: translateX(0%);
+        transform-origin: 50% 50%;
+    }
+    15% {
+        transform: translateX(-30px) rotate(-6deg);
+    }
+    30% {
+        transform: translateX(15px) rotate(6deg);
+    }
+    45% {
+        transform: translateX(-15px) rotate(-3.6deg);
+    }
+    60% {
+        transform: translateX(9px) rotate(2.4deg);
+    }
+    75% {
+        transform: translateX(-6px) rotate(-1.2deg);
+    }
+}
+
+h2 {
+    color: black !important;
+}
+
+@keyframes example {
+    0% {
+        background-color: var(--maincolor)
+    }
+    25% {
+        background-color: var(--seccolor)
+    }
+    50% {
+        background-color: var(--bgcolor)
+    }
+}
+
+.navbar {
+    color: white;
+    background-color: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    position: relative;
+}
+
+.side-menu {
+    color: white;
+    height: 100%;
+    width: 400px;
+    position: fixed;
+    display: none;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    animation-name: sidemenu;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
+.side-menu div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes sidemenu {
+    from {
+        left: -400px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
+#closeButton {
+    width: 300px;
+    border: 2px solid transparent;
+    background-color: white;
+}
+
+#closeButton:hover {
+    color: white;
+    background-color: #720907;
+}
+
+#loginButton {
+    margin-top: 5px;
+    font-size: larger;
+    height: auto;
+    width: 300px;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+}
+
+#loginButton:hover {
+    border: 2px solid transparent;
+    background-color: var(--maincolor);
+    color: black;
+}
+
+.logo-img {
+    height: 50px;
+    animation-name: logos;
+}
+
+@keyframes logos {
+    from {
+        left: 0px;
+    }
+    to {
+        top: 50px;
+    }
+}
+
+.bgvideo {
+    width: 100%;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0px;
+    box-shadow: 0 0px 10px 0 var(--seccolor);
+}
+
+.videoactual {
+    top: 0;
+    left: 0;
+    height: 720px;
+    margin-bottom: 0px;
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+}
+
+.bgvideo p {
+    font-family: "SK Porsche";
+    color: white;
+    font-size: 8dvh;
+    position: relative;
+    margin-top: 25%;
+    margin-left: 5dvb;
+    margin-bottom: 2px;
+}
+
+.button1 button {
+    padding: 14px 180px;
+    border: 2px solid white;
+    color: white;
+    position: relative;
+    font-size: 100%;
+    background-color: transparent;
+    margin-left: 5dvb;
+}
+
+.sec2 {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    float: right 20%;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .sec2 {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.card-box {
+    overflow: hidden;
+    height: 250px;
+    width: 325px;
+    position: relative;
+    background: linear-gradient(white, white) padding-box, linear-gradient(to bottom, var(--maincolor), var(--seccolor)) border-box;
+    border-radius: 10%;
+    border: 4px solid transparent;
+}
+
+@media screen and (max-width: 768px) {
+    .card-box {
+        height: 350px;
+        /* Change the height */
+        width: 500px;
+        /* Change the width */
+    }
+}
+
+.card-box h5 {
+    display: flex;
+    position: relative;
+    top: 70%;
+    left: 5%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.card-box img {
+    transition: transform.2s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-box img:hover {
+    transform: scale(1.10);
+}
+
+.models-section {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 600px;
+    gap: 50px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.models-cardbox {
+    overflow: visible;
+    margin-top: 50px;
+    height: 730px;
+    width: 425px;
+    position: relative;
+    box-shadow: 5px 5px 10px 1px #000000;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .models-section {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.models-cardbox img {
+    transition: transform 0.5s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.models .models-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black
+}
+
+.models-cardbox h3 {
+    position: relative;
+    margin-left: 20px;
+    color: white;
+    font-style: italic;
+}
+
+.models-cardbox img:hover {
+    transform: scale(1.10);
+}
+
+.models-cardbox .details-about-car {
+    margin: 10px 10px 0px;
+    padding-bottom: 0px;
+    border: 0px;
+    top: 50%;
+    position: relative;
+    font-size: x-large;
+    color: aliceblue;
+}
+
+.models-cardbox .price-car {
+    margin-left: 10px;
+    font-size: large;
+    top: 50%;
+    position: relative;
+    color: white;
+}
+
+.but-on-card {
+    margin: 10px;
+    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 50%;
+}
+
+.but-on-card button {
+    font-size: large;
+    font-weight: lighter;
+    padding: 10px 0px 10px 0px;
+}
+
+.but-on-card .but-card-1:hover {
+    opacity: 0.7;
+}
+
+.but-on-card .but-card-2 {
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.but-on-card .but-card-2:hover {
+    background-color: grey;
+}
+
+.some-details {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    flex-direction: column;
+    display: flex;
+    color: black;
+}
+
+.porsche-center {
+    margin: 10px;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.porsche-center-card {
+    box-shadow: 5px 5px 10px 1px #000000;
+    background-image: linear-gradient(to right, var(--bgcolor), rgb(105, 3, 3));
+    height: 300px;
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.porsche-center-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    width: 500px;
+    position: relative;
+    color: white;
+}
+
+@media screen and (max-width: 720px) {
+    .porsche-center-card {
+        width: 90%;
+    }
+    .porsche-center-details {
+        width: 250px;
+    }
+}
+
+.porsche-center-details h5,
+.p-details-ceter,
+.button-center {
+    object-fit: contain;
+}
+
+.porsche-center-details .button-center {
+    border-radius: 5%;
+    border: 2px solid transparent;
+    background-color: white;
+    height: 50px;
+    width: 100px;
+}
+
+.porsche-center-details .button-center:hover {
+    opacity: 0.7;
+}
+
+.porsche-center-img img {
+    height: 100%;
+    width: 600px;
+    position: relative;
+    object-fit: contain;
+}
+
+.pre-own {
+    margin-top: 150px;
+    color: black;
+}
+
+.pre-own-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.pre-own-main .pre-own-details {
+    height: 500px;
+    width: 400px;
+    left: 250px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+@media screen and (max-width:768px) {
+    .pre-own-main .pre-own-details {
+        left: 10px;
+    }
+    .pre-own-main img {
+        width: 300px;
+    }
+}
+
+.social-media {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media .social-media-posts {
+    box-shadow: 5px 5px 10px 1px #000000;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    display: grid;
+    height: 550px;
+    width: 1000px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .social-media .social-media-posts {
+        height: 300px;
+        width: 600px;
+    }
+}
+
+.social-media .social-media-posts img,
+video {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+
+/* @media screen and (max-width: 1000px) {
+    .social-media .social-media-posts img,
+    video {object-fit: contain;}
+} */
+
+.social-media .social-media-posts img:hover,
+.social-media-posts video:hover {
+    transform: scale(1.10);
+}
+
+.social-media .social-media-posts>div .social-media-container {
+    position: relative;
+    color: white;
+    background-color: var(--bgcolor);
+    height: 50px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    transition: opacity 0.5s;
+    opacity: 0;
+    z-index: 1;
+}
+
+@media screen and (max-width:768px) {
+    .social-media .social-media-posts>div .social-media-container {
+        height: 20px;
+        align-items: flex-start;
+        padding: 0;
+        flex-direction: row;
+        column-gap: 10px;
+    }
+}
+
+.social-media .social-media-posts>div:hover .social-media-container {
+    opacity: 1;
+}
+
+.social-media-container h6,
+a {
+    position: relative;
+    font-size: 5px !important;
+    color: white;
+}
+
+.social-media-container i {
+    position: relative;
+    font-size: x-large !important;
+}
+
+.fa-instagram,
+.fa-pinterest {
+    color: red;
+}
+
+.fa-expand {
+    cursor: pointer;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: x-large !important;
+    position: relative;
+    z-index: 1;
+    color: white !important;
+}
+
+.fa-volume-up,
+.fa-volume-off {
+    cursor: pointer;
+    margin-top: 5px;
+    margin-right: 5px;
+    font-size: x-large !important;
+    position: relative;
+    z-index: 1;
+    color: white !important;
+}
+
+.social-media .social-media-posts>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    align-items: stretch;
+}
+
+.social-media .social-media-posts .div1 {
+    grid-area: 1 / 1 / 4 / 3;
+}
+
+.social-media .social-media-posts .div2 {
+    grid-area: 4 / 1 / 6 / 2;
+}
+
+.social-media .social-media-posts .div3 {
+    grid-area: 4 / 2 / 6 / 3;
+}
+
+.social-media .social-media-posts .div4 {
+    grid-area: 1 / 3 / 3 / 5;
+}
+
+.social-media .social-media-posts .div5 {
+    grid-area: 1 / 5 / 3 / 8;
+}
+
+.social-media .social-media-posts .div6 {
+    grid-area: 3 / 6 / 5 / 8;
+}
+
+.social-media .social-media-posts .div7 {
+    grid-area: 3 / 3 / 6 / 6;
+}
+
+.social-media .social-media-posts .div8 {
+    grid-area: 5 / 6 / 6 / 8;
+}
+
+.social-media .social-media-posts .div9 {
+    grid-area: 1 / 8 / 3 / 9;
+}
+
+.social-media .social-media-posts .div10 {
+    grid-area: 3 / 8 / 6 / 9;
+}
+
+.video-controls-social {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.vid {
+    height: 3000px;
+}
+
+section.vid .vid-scrub {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 16/9;
+    position: relative;
+    object-fit: cover;
+    filter: contrast(1.3), brightness(0.75), saturate(1.5);
+}
+
+section.vid div.holder {
+    position: sticky;
+    top: 0px;
+}
+
+footer {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding-top: 50px;
+    height: 720px;
+    width: auto;
+    background-color: #140f0f;
+}
+
+.container-footer {
+    color: white;
+    background-color: #140f0f;
+    height: 500px;
+    width: 95%;
+    font-size: x-large;
+}
+
+.flag {
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
+
+.contact-us {
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-us div {
+    margin-bottom: 50px;
+    height: 300px;
+    width: 350px;
+    background-color: #140f0f;
+}
+
+.contact-us-button {
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-color: white;
+    color: black;
+    margin-bottom: 50px;
+    padding: 14px 100px;
+}
+
+.line {
+    background-color: white;
+    height: 1px;
+    width: 100%;
+}
+
+.ending {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

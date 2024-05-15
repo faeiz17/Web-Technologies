@@ -31,7 +31,7 @@ const create = async(req, res) => {
         const savedCar = await carData.save();
 
         // Redirect to the fetch route after successful creation
-        return res.redirect("/cars/fetch");
+        return res.redirect("/admin/cars");
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: "Internal server error" });
@@ -46,7 +46,7 @@ const fetch = async(req, res) => {
             return res.status(404).json({ message: "No Cars in the collection" })
         }
         // res.status(200).json(cars)
-        res.render('cars', { cars: cars });
+        res.render('cars', { cars: cars, layout: 'adminLayout' });
     } catch (error) {
         res.status(500).json({
             error: "internal server error"
@@ -64,7 +64,7 @@ const update = async(req, res) => {
         }
         const updateCar = await Cars.findByIdAndUpdate(id, req.body, { new: true })
             // Redirect to the car list page after successful update
-        res.redirect("/cars/fetch");
+        res.redirect("/admin/cars");
     } catch (error) {
         res.status(500).json({
             error: "internal server error"
@@ -84,7 +84,7 @@ const deleteCar = async(req, res) => {
         await Cars.findByIdAndDelete(id);
 
         // Redirect to the fetch route after successful deletion
-        res.redirect("/cars/fetch");
+        res.redirect("/admin/cars");
     } catch (error) {
         res.status(500).json({ error: "Internal server error" });
     }
@@ -92,10 +92,10 @@ const deleteCar = async(req, res) => {
 
 
 
-route.get("/fetch", fetch)
-route.post("/create", create)
-route.post("/update/:id", update)
-route.delete("/delete/:id", deleteCar)
+route.get("/admin/cars", fetch)
+route.post("/admin/cars/create", create)
+route.post("/admin/cars/update/:id", update)
+route.post("/admin/cars/delete/:id", deleteCar)
     // In your car routes file (car-routes.js or similar)
 
 const editCar = async(req, res) => {
@@ -113,8 +113,11 @@ const editCar = async(req, res) => {
 };
 
 // Define the route for editing a car
-route.get("/edit/:id", editCar);
+route.get("/admin/cars/edit/:id", editCar);
 
+route.get('/homepage', function(req, res) {
+    res.render('homepage', { layout: 'layout' })
+})
 
 
 export default route;

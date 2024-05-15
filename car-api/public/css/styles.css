@@ -42,6 +42,11 @@ nav img {
     height: 200px;
 }
 
+h3,
+h5 {
+    margin: 0;
+}
+
 .image-container-card img {
     width: auto;
     height: 200px;
