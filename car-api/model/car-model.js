@@ -29,7 +29,6 @@ const carSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-
     description: {
         type: String,
         required: false
@@ -41,9 +40,39 @@ const carSchema = new mongoose.Schema({
     rearLuggage: {
         type: String,
         required: false
+    },
+    color: {
+        type: String,
+        required: false
+    },
+    horsepower: {
+        type: String,
+        required: false
+    },
+    category: {
+        type: String,
+        required: true,
+        enum: [
+            "Carrera",
+            "Targa",
+            "Turbo",
+            "GT",
+            "Special Models",
+            "Cayman",
+            "Boxster",
+            "Cayman GT",
+            "Spyder",
+            "Sport Limousine",
+            "Sport Turismo",
+            "Cross Turismo",
+            "Panamera Gasoline",
+            "Panamera Hybrid",
+            "Macan Gasoline",
+            "Macan Hybrid",
+            "SUV",
+            "Coupé"
+        ]
     }
+});
 
-
-})
-
-export default mongoose.model("cars", carSchema)
+export default mongoose.model("cars", carSchema);

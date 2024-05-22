@@ -4,7 +4,29 @@
     --bgcolor: #140f0f;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+    /* Adjust the width as needed */
+}
+
+
+/* Style the scrollbar track */
+
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Change the background color as needed */
+}
+
+
+/* Style the scrollbar thumb */
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Change the color of the scrollbar thumb */
+}
+
 body {
+    overflow-x: hidden;
     /* animation-delay: 2s;
     animation-name: example;
     animation-iteration-count: infinite;
@@ -35,7 +57,7 @@ button:hover {
 }
 
 h1 {
-    animation: h1Animation 2s ease 0s infinite normal forwards;
+    margin: 0;
     background: #D8AB23;
     background: radial-gradient(circle farthest-side at center center, #D8AB23 0%, #140F0F 50%, #B70E0B 100%);
     -webkit-background-clip: text;
@@ -82,15 +104,16 @@ h2 {
 }
 
 .navbar {
+    width: 100%;
     color: white;
     background-color: transparent;
-    padding-left: 10px;
-    padding-right: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: auto;
-    position: relative;
+    align-items: center;
+    margin: 5px;
+    z-index: 1000;
+    position: absolute;
 }
 
 .side-menu {
@@ -208,6 +231,11 @@ h2 {
 }
 
 .sec2 {
+    /* animation: fading-sections linear forward;
+    animation-timeline: view(10%);
+    scale: .8;
+    opacity: 0; */
+    animation-range: 250px 500px;
     margin-top: 80px;
     display: flex;
     flex-direction: row;
@@ -229,9 +257,8 @@ h2 {
     height: 250px;
     width: 325px;
     position: relative;
-    background: linear-gradient(white, white) padding-box, linear-gradient(to bottom, var(--maincolor), var(--seccolor)) border-box;
+    /* background: linear-gradient(white, white) padding-box, linear-gradient(to bottom, var(--maincolor), var(--seccolor)) border-box; */
     border-radius: 10%;
-    border: 4px solid transparent;
 }
 
 @media screen and (max-width: 768px) {
@@ -266,6 +293,26 @@ h2 {
 
 .card-box img:hover {
     transform: scale(1.10);
+}
+
+.box {
+    margin-top: 50px;
+    position: absolute;
+    left: 0;
+    height: auto;
+    width: 40%;
+    animation: car-animation 5s ease 0s infinite normal forwards;
+}
+
+@keyframes car-animation {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
 }
 
 .models-section {
@@ -450,19 +497,23 @@ h2 {
 }
 
 .pre-own-main {
+    font-size: x-large;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
 }
 
 .pre-own-main .pre-own-details {
     height: 500px;
     width: 400px;
-    left: 250px;
     display: flex;
     flex-direction: column;
-    position: relative;
+}
+
+.pre-own-main img {
+    width: 400px;
+    height: auto;
 }
 
 @media screen and (max-width:768px) {
@@ -483,6 +534,7 @@ h2 {
 }
 
 .social-media .social-media-posts {
+    animation: social-media-animation 2s ease 0s infinite normal forwards;
     box-shadow: 5px 5px 10px 1px #000000;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -494,6 +546,27 @@ h2 {
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
+}
+
+@keyframes social-media-animation {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -671,15 +744,13 @@ footer {
     flex-direction: row;
     align-items: baseline;
     padding-top: 50px;
-    height: 720px;
-    width: auto;
+    width: 100%;
     background-color: #140f0f;
 }
 
 .container-footer {
     color: white;
     background-color: #140f0f;
-    height: 500px;
     width: 95%;
     font-size: x-large;
 }
@@ -697,11 +768,15 @@ footer {
     flex-direction: row;
     align-items: center;
     gap: 20px;
+    li:hover {
+        cursor: pointer;
+        color: #720907;
+    }
 }
 
 .contact-us div {
     margin-bottom: 50px;
-    height: 300px;
+    height: auto;
     width: 350px;
     background-color: #140f0f;
 }
@@ -716,14 +791,23 @@ footer {
 }
 
 .line {
+    margin: 20px;
     background-color: white;
     height: 1px;
     width: 100%;
 }
 
 .ending {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@keyframes fading-sections {
+    to {
+        scale: 1;
+        opacity: 1;
+    }
 }

@@ -36,37 +36,18 @@ h4,
 h6,
 h5 {
     text-transform: capitalize;
-    margin: 5px;
-}
-
-::-webkit-scrollbar {
-    width: 5px;
-    /* Adjust the width as needed */
+    margin: 0px
 }
 
 h1 {
     text-transform: capitalize;
-    margin: 10PX;
     text-align: center;
 }
 
-
-/* Style the scrollbar track */
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    /* Change the background color as needed */
-}
-
-
-/* Style the scrollbar thumb */
-
-::-webkit-scrollbar-thumb {
-    background: #888;
-    /* Change the color of the scrollbar thumb */
-}
-
 .card {
+    text-align: left;
+    text-wrap: balance;
+    margin: 20px;
     text-transform: capitalize;
     background-color: #fff;
     border-radius: 10px;

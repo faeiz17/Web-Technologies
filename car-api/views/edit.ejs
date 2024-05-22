@@ -1,27 +1,53 @@
-<!-- views/edit.ejs -->
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Car Details</title>
-</head>
-
-<body>
-    <h1>Edit Car Details</h1>
-    <form action="/admin/cars/update/<%= car._id %>" method="POST">
-        <label for="make">Make:</label>
-        <input type="text" id="make" name="make" value="<%= car.make %>" required><br>
+<h1>Edit Car Details</h1>
+<form action="/admin/cars/update/<%= car._id %>" method="POST">
+    <div class="enter-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= car.name %>" required><br>
         <label for="model">Model:</label>
         <input type="text" id="model" name="model" value="<%= car.model %>" required><br>
         <label for="year">Year:</label>
         <input type="text" id="year" name="year" value="<%= car.year %>" required><br>
         <label for="price">Price:</label>
         <input type="text" id="price" name="price" value="<%= car.price %>" required><br>
-        <button type="submit">Update Car</button>
-    </form>
-</body>
-
-</html>
+        <label for="zto60">0-60 mph:</label>
+        <input type="text" id="zto60" name="zto60" value="<%= car.zto60 %>"><br>
+        <label for="speed">Top Speed:</label>
+        <input type="text" id="speed" name="speed" value="<%= car.speed %>"><br>
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image" value="<%= car.image %>"><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"><%= car.description %></textarea><br>
+        <label for="range">Range:</label>
+        <input type="text" id="range" name="range" value="<%= car.range %>"><br>
+        <label for="rearLuggage">Rear Luggage Capacity:</label>
+        <input type="text" id="rearLuggage" name="rearLuggage" value="<%= car.rearLuggage %>"><br>
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" value="<%= car.color %>"><br>
+        <label for="horsepower">Horsepower:</label>
+        <input type="text" id="horsepower" name="horsepower" value="<%= car.horsepower %>"><br>
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+    <option value="Carrera">Carrera</option>
+    <option value="Carrera Cabriolet">Carrera Cabriolet</option>
+    <option value="Targa">Targa</option>
+    <option value="Turbo">Turbo</option>
+    <option value="Turbo Cabriolet">Turbo Cabriolet</option>
+    <option value="GT">GT</option>
+    <option value="Special Models">Special Models</option>
+    <option value="Cayman">Cayman</option>
+    <option value="Boxster">Boxster</option>
+    <option value="Cayman GT">Cayman GT</option>
+    <option value="Spyder">Spyder</option>
+    <option value="Sport Limousine">Sport Limousine</option>
+    <option value="Sport Turismo">Sport Turismo</option>
+    <option value="Cross Turismo">Cross Turismo</option>
+    <option value="Panamera Gasoline">Panamera Gasoline</option>
+    <option value="Panamaera Hybrid">Panamaera Hybrid</option>
+    <option value="Macan Gasoline">Macan Gasoline</option>
+    <option value="Macan Hybrid">Macan Hybrid</option>
+    <option value="SUV">SUV</option>
+    <option value="Coupé">Coupé</option>
+</select>
+    </div>
+    <button type="submit">Update Car</button>
+</form>

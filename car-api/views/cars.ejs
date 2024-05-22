@@ -2,102 +2,143 @@
 <!-- Form for adding a new car -->
 <h2>Add New Car</h2>
 <form action="/admin/cars/create" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br>
-    <label for="model">Model:</label>
-    <input type="text" id="model" name="model" required><br>
-    <label for="year">Year:</label>
-    <input type="text" id="year" name="year"><br>
-    <label for="price">Price:</label>
-    <input type="number" id="price" name="price" required><br>
-    <label for="zto60">0-60 mph:</label>
-    <input type="text" id="zto60" name="zto60"><br>
-    <label for="speed">Top Speed:</label>
-    <input type="text" id="speed" name="speed"><br>
-    <label for="image">Image URL:</label>
-    <input type="text" id="image" name="image"><br>
+    <div class="enter-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-    <label for="description">Description:</label>
-    <textarea id="description" name="description"></textarea><br>
-    <label for="range">Range:</label>
-    <input type="text" id="range" name="range"><br>
-    <label for="rearLuggage">Rear Luggage Capacity:</label>
-    <input type="text" id="rearLuggage" name="rearLuggage"><br>
-    <button type="submit">Add Car</button>
+        <label for="model">Model:</label>
+        <input type="text" id="model" name="model" required>
+
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year">
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required>
+
+        <label for="zto60">0-60 mph:</label>
+        <input type="text" id="zto60" name="zto60">
+
+        <label for="speed">Top Speed:</label>
+        <input type="text" id="speed" name="speed">
+
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image">
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea>
+
+        <label for="range">Range:</label>
+        <input type="text" id="range" name="range">
+
+        <label for="rearLuggage">Rear Luggage Capacity:</label>
+        <input type="text" id="rearLuggage" name="rearLuggage">
+
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color">
+
+        <label for="horsepower">Horsepower:</label>
+        <input type="text" id="horsepower" name="horsepower">
+
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+    <option value="Carrera">Carrera</option>
+    <option value="Carrera Cabriolet">Carrera Cabriolet</option>
+    <option value="Targa">Targa</option>
+    <option value="Turbo">Turbo</option>
+    <option value="Turbo Cabriolet">Turbo Cabriolet</option>
+    <option value="GT">GT</option>
+    <option value="Special Models">Special Models</option>
+    <option value="Cayman">Cayman</option>
+    <option value="Boxster">Boxster</option>
+    <option value="Cayman GT">Cayman GT</option>
+    <option value="Spyder">Spyder</option>
+    <option value="Sport Limousine">Sport Limousine</option>
+    <option value="Sport Turismo">Sport Turismo</option>
+    <option value="Cross Turismo">Cross Turismo</option>
+    <option value="Panamera Gasoline">Panamera Gasoline</option>
+    <option value="Panamaera Hybrid">Panamaera Hybrid</option>
+    <option value="Macan Gasoline">Macan Gasoline</option>
+    <option value="Macan Hybrid">Macan Hybrid</option>
+    <option value="SUV">SUV</option>
+    <option value="Coupé">Coupé</option>
+</select>
+
+
+        <button type="submit" class="add-button">Add Car</button>
+    </div>
 </form>
 
 
 
-<h1>Car List</h1>
-<div class="list-of-cars">
+<% 
+    let categories = {};
 
+    cars.forEach(function(car) {
+        if (!categories[car.category]) {
+            categories[car.category] = [];
+        }
+        categories[car.category].push(car);
+    });
 
-
-    <% 
-    cars.forEach(function(car)  { %>
-
-        <div class="card">
-            <div class="image-container-card">
-                <img src="https://files.porsche.com/filestore/image/multimedia/none/jdp-2016-982-718-c7-modelimage-sideshot/model/1b1b5cb6-e874-11ea-80cd-005056bbdc38/porsche-model.png" alt="">
+    for (let category in categories) {
+    %>
+    <h1>
+        <%= category %>
+    </h1>
+    <div class="list-of-cars">
+        <% categories[category].forEach(function(car) { %>
+            <div class="card">
+                <img src="<%= car.image %>" alt="Car Image" class="card-img">
+                <div class="card-content">
+                    <h2 class="card-title">
+                        <%= car.name %>
+                    </h2>
+                    <div class="card-details">
+                        <p>
+                            <%= car.model %>
+                        </p>
+                        <p>
+                            <%= car.year %>
+                        </p>
+                        <p>
+                            <%= car.price %>
+                        </p>
+                        <p>
+                            <%= car.zto60 %>
+                        </p>
+                        <p>
+                            <%= car.speed %>
+                        </p>
+                        <p>
+                            <%= car.description %>
+                        </p>
+                        <p>
+                            <%= car.range %>
+                        </p>
+                        <p>
+                            <%= car.rearLuggage %>
+                        </p>
+                        <p>
+                            <%= car.color %>
+                        </p>
+                        <p>
+                            <%= car.horsepower %>
+                        </p>
+                        <a href="/admin/cars/edit/<%= car.id %>" class="edit-button">Edit</a>
+                    </div>
+                    <form action="/admin/cars/delete/<%= car.id %> " method="POST" onsubmit="return confirmDelete()">
+                        <button type="submit" class="delete-button">DELETE</button>
+                    </form>
+                </div>
             </div>
-            <div class="details">
-                <h5>cayman</h5>
-                <h5>
-                    <%= car.name %>
-                </h5>
-                <h5>
-                    <%= car.model %>
-                </h5>
-                <h5>
-                    <%= car.year %>
-                </h5>
-                <h5>
-                    <%= car.price %>
-                </h5>
-                <h5>
-                    <%= car.zto60 %>
-                </h5>
-                <h5>
-                    <%= car.speed %>
-                </h5>
-                <h5>
-                    <%= car.description %>
-                </h5>
-                <h5>
-                    <%= car.range %>
-                </h5>
-                <h5>
-                    <%= car.rearLuggage %>
-                </h5>
-
-
-                <form action="/admin/cars/delete/<%= car.id %> " method="POST" onsubmit="return confirmDelete()">
-
-                    <button type="submit">DELETE</button>
-                </form>
-
-
-
-                <a href="/admin/cars/edit/<%= car.id %> ">Edit</a>
-
-
-            </div>
-
-
-
-
-
+            <% }) %>
+    </div>
+    <% } %>
         </div>
 
-
-
-        <% } )%>
-
-</div>
-
-<script>
-    // Function to display confirmation dialog
-    function confirmDelete() {
-        return confirm("Are you sure you want to delete this car?");
-    }
-</script>
+        <script>
+            // Function to display confirmation dialog
+            function confirmDelete() {
+                return confirm("Are you sure you want to delete this car?");
+            }
+        </script>

@@ -24,25 +24,7 @@
                         <div class="textonvideo">
 
 
-                            <nav class="navbar">
 
-
-                                <div>
-                                    <h2><i class="fa fa-user" id="user"></i></h2>
-                                </div>
-                                <div>
-                                    <h2><img class="logo-img" src="/media/logo.png" alt="logo">
-                                        <a href="/index.html"></a>
-                                    </h2>
-                                </div>
-                                <div>
-                                    <h2><i class="fa fa-bars"></i></h2>
-                                </div>
-
-
-
-
-                            </nav>
                         </div>
                         <p>keep your essance
                             <div class="button1 ">
@@ -59,28 +41,31 @@
     </section>
 </header>
 <section class="sec2 ">
-    <div class="card-box">
+    <div class="card-box" onclick="window.location.href = `/news/maccan`">
 
-        <img src="/media/macanelectric_252.jpg" alt="the new tycan">
+        <img src="https://robbreport.com/wp-content/uploads/2024/01/1-w-DSC08884.jpg?w=1024" alt="the new tycan">
 
         <h5>The new electric macan <i class="fa fa-arrow-right " style="margin:auto "></i></h5>
     </div>
-    <div class="card-box">
-        <img src="/media/panamera.webp" alt="the new tycan">
-        <h5> <i class="fa fa-arrow-right " style="padding-left: 150px; "></i></h5>
+    <div class="card-box" onclick="window.location.href = `/news/future`">
+        <img src="https://www.carscoops.com/wp-content/uploads/2023/01/Porsche-911-Concept-17-1024x576.jpg" alt="the new tycan">
+        <h5> Future of porsche<i class="fa fa-arrow-right " style="padding-left: 150px; "></i></h5>
 
     </div>
-    <div class="card-box">
+    <div class="card-box" onclick="window.location.href = `/news/history`">
 
 
-        <img src="/media/the new tycan.jpg" alt="the new tycan">
-        <h5> <i class="fa fa-arrow-right " style="padding-left: 150px; "></i></h5>
+        <img src="https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1290x726/dam/pnr/porsche_newsroom/People/Ferdinand-Porsche/P06_0898_a5/jcr:content/P06_0898_a5.jpg" alt="the new tycan">
+        <h5>History of porsche <i class="fa fa-arrow-right " style="padding-left: 150px; "></i></h5>
     </div>
 
 </section>
 
 
-<div style="height: 50px;"></div>
+<div style="height: 250px; width:100%; position: relative;">
+    <img class="box" src="/media/rolling-car.png">
+</div>
+
 
 <section class="models">
     <h2 class="models-heading"> Models</h2>
@@ -94,8 +79,23 @@
             <p class="price-car">From $ 68,000</p>
             <div class="but-on-card">
                 <button class="but-card-1">build your media/images/</button>
-                <button class="but-card-2">all media/images/ models</button>
+                <!-- Link to view all Cayman models -->
+                <a href="/homepage/model?names=Cayman,Boxter,Spyder,Cayman%20GT">
+                    <button class="but-card-2">All Cayman Models</button>
+                </a>
+
+                <!-- Link to view only Cayman and Boxter models -->
+                <a href="/homepage/model?names=Cayman,Boxter">
+                    <button class="but-card-2">Cayman and Boxter Models</button>
+                </a>
+
+                <!-- Link to view only Spyder models -->
+                <a href="/homepage/model?names=Spyder">
+                    <button class="but-card-2">Spyder Models</button>
+                </a>
+
             </div>
+
         </div>
 
         <div class="models-cardbox">
@@ -167,7 +167,7 @@
             <div class="porsche-center-details">
                 <h5>Find Your Porsche Center</h5>
                 <p class="p-details-ceter">A Porsche Center, and your dream Porsche vehicle, may be closer than you think. Search our Porsche Center network for the location closest to you.</p>
-                <button class="button-center">Search now</button>
+                <button class="button-center" onclick="window.location.href = `/porsche/center`">Search now</button>
             </div>
         </div>
         <div class="porsche-center-img">
@@ -364,82 +364,3 @@
 
     <div style="height: 100%; width:100%;background-color:black ;position:'absolute';"></div>
 </section> -->
-
-<footer>
-
-    <div class="container-footer">
-        <p>Current Region / Language</p>
-
-        <div>
-            <img class="flag" src="/media/Flag_of_the_United_States.png" alt="flag">
-            <span>United States / English</span>
-            <span>Change</span>
-        </div>
-        <div class="contact-us">
-            <div class="contact-us-1">
-                <h6>
-                    NewsLetter
-                </h6>
-                <p>
-                    Latest news directly in your inbox
-                </p>
-                <button class="contact-us-button">
-            Subscribe
-          </button>
-                <h6>
-                    Companay
-                </h6>
-                <ul>
-                    <li>Porche at a Glance</li>
-                    <li>Sustainability</li>
-                    <li>Partner Forum</li>
-                    <li>Press</li>
-                </ul>
-
-            </div>
-            <div class="contact-us-1">
-                <h6>
-                    NewsLetter
-                </h6>
-                <p>
-                    Latest news directly in your inbox
-                </p>
-                <button class="contact-us-button">
-            Subscribe
-          </button>
-                <h6>
-
-
-                </h6>
-                <ul>
-                    <li>Porche at a Glance</li>
-                    <li>Sustainability</li>
-                    <li>Partner Forum</li>
-                    <li>Press</li>
-                </ul>
-
-            </div>
-            <div class="contact-us-1">
-                <h6>
-                    NewsLetter
-                </h6>
-                <p>
-                    Latest news directly in your inbox
-                </p>
-                <button>
-            Subscribe
-          </button>
-
-            </div>
-
-        </div>
-        <div class="line"></div>
-        <p style="margin-top: 50px;">© 2024 Porsche Cars North America, Inc. Legal notice. Privacy notice. California Privacy. Accessibility Statement. Open Source Software Notice. Do Not Sell or Share My Personal Information. Whistleblower System. Emergency Responders. Recall Information.
-            3G Wireless Turndown FAQs.</p>
-        <div class="ending">
-            <h1>PORSCHE</h1>
-        </div>
-    </div>
-
-
-</footer>

@@ -36,8 +36,11 @@ $(document).ready(function() {
 
 
 document.getElementById("loginButton").onclick = function() {
-    window.location.href = "login.html";
+    window.location.href = "/login/user-login";
 
+}
+document.getElementById("contact-us").onclick = function() {
+    window.location.href = "/contact-us"
 }
 
 function videofullerscreen(getElementById) {

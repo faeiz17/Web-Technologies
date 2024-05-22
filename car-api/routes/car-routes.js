@@ -11,7 +11,7 @@ const route = express.Router()
 const create = async(req, res) => {
     console.log(req.body);
     try {
-        const { name, model, year, price, zto60, speed, image, description, range, rearLuggage } = req.body;
+        const { name, model, year, price, zto60, speed, image, description, range, rearLuggage, color, horsepower, category } = req.body;
 
         // Check if model is provided
         if (!model) {
@@ -25,7 +25,7 @@ const create = async(req, res) => {
         }
 
         // Create a new Car instance with provided fields
-        const carData = new Cars({ name, model, year, price, zto60, speed, image, description, range, rearLuggage });
+        const carData = new Cars({ name, model, year, price, zto60, speed, image, description, range, rearLuggage, color, horsepower, category });
 
         // Save the new car to the database
         const savedCar = await carData.save();
@@ -106,7 +106,7 @@ const editCar = async(req, res) => {
             return res.status(404).json({ message: "Car not found" });
         }
         // Render the edit page and pass the car data to the view
-        res.render('edit', { car: car });
+        res.render('edit', { car: car, layout: 'adminLayout' });
     } catch (error) {
         res.status(500).json({ error: "Internal server error" });
     }
@@ -116,7 +116,60 @@ const editCar = async(req, res) => {
 route.get("/admin/cars/edit/:id", editCar);
 
 route.get('/homepage', function(req, res) {
-    res.render('homepage', { layout: 'layout' })
+    res.render('homepage', { layout: 'layout', })
+})
+
+route.get("/homepage/model", async function(req, res) {
+    try {
+        // Get the car names from the query parameters
+        const names = req.query.names ? req.query.names.split(",") : [];
+
+        // Perform the database query with the provided names
+        const cars = await Cars.find({
+            name: { $in: names }
+        });
+
+        console.log(cars);
+        res.render("pages/model", { layout: "layout", cars: cars });
+    } catch (err) {
+        console.error("Error fetching cars:", err);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+route.get("/contact-us", function(req, res) {
+    res.render("pages/contact-us", { layout: "layout", })
+})
+route.get("/porsche/center", function(req, res) {
+    res.render("pages/map", { layout: "layout", })
+})
+route.get("/news/maccan", function(req, res) {
+    res.render("pages/front-news", { layout: "layout", Heading: "The new electric maccan", firstcarimage: "https://images-porsche.imgix.net/-/media/F44BDF5A72164B019EA267F0FB7051F3_6C7B7BF3D5AB480CAC00F2CD5FFBC453_macan-turbo-front?w=704&q=85&auto=format", secondcarimage: "https://images-porsche.imgix.net/-/media/F44BDF5A72164B019EA267F0FB7051F3_6C7B7BF3D5AB480CAC00F2CD5FFBC453_macan-turbo-front?w=704&q=85&auto=format", thirdcarimage: "https://images-porsche.imgix.net/-/media/F44BDF5A72164B019EA267F0FB7051F3_6C7B7BF3D5AB480CAC00F2CD5FFBC453_macan-turbo-front?w=704&q=85&auto=format" })
+})
+
+
+
+route.get("/news/future", function(req, res) {
+    res.render("pages/front-news", {
+        layout: "layout",
+        Heading: "Future",
+        firstcarimage: "https://files.porsche.com/filestore/image/multimedia/none/innovation-missione-margin-01/normal/337fc63c-1b8f-11e8-bbc5-0019999cd470;s6/porsche-normal.jpg",
+
+        secondcarimage: "https://files.porsche.com/filestore/image/multimedia/none/innovation-missione-editorial-l/normal/be34c292-1bbe-11e8-bbc5-0019999cd470;sM;twebp/porsche-normal.webp",
+        thirdcarimage: "https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/innovation-missione-gallery-02/zoom2/58724bda-1bbb-11e8-bbc5-0019999cd470;sR;twebp/porsche-zoom2.webp"
+    })
+})
+
+
+route.get("/news/history", function(req, res) {
+    res.render("pages/front-news", {
+        layout: "layout",
+        Heading: "The Porsche History",
+        firstcarimage: "https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/innovation-missione-gallery-02/zoom2/58724bda-1bbb-11e8-bbc5-0019999cd470;sR;twebp/porsche-zoom2.webp",
+
+        secondcarimage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOp0ZxDarDBZ1ZXRd30bVbfgONyZsQTslfrGvpHCdLnQ&s",
+        thirdcarimage: "https://image.cnbcfm.com/api/v1/image/106074686-15656332405521939-porsche-type-64_--jack-schroeder-c-2019-courtesy-of-rm-sothebys.jpg?v=1565633278"
+    })
 })
 
 

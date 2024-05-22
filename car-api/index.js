@@ -3,8 +3,11 @@ import mongoose from "mongoose"
 import bodyParser from "body-parser"
 import dotenv from "dotenv"
 import route from "./routes/car-routes.js"
+import authRoute from "./routes/auth.js"
 import ejsLayouts from "express-ejs-layouts"
 import methodOverride from "method-override";
+import expressSession from "express-session"
+import checkAuth from "./middlewares/check-auth.js"
 
 const app = express();
 
@@ -22,6 +25,8 @@ app.set("view engine", "ejs")
 
 app.use(ejsLayouts)
 app.use(express.static("public"));
+app.use(expressSession({ secret: "My Secret Key" }))
+
 
 const PORT = process.env.PORT || 5000;
 const MONGOURL = process.env.MONGO_URL;
@@ -38,3 +43,7 @@ mongoose.connect(MONGOURL).then(() => {
 
 
 app.use("/", route)
+
+app.use("/register", authRoute)
+app.use("/login", authRoute)
+app.use("/logout", authRoute)

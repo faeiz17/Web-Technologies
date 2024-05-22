@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="/css/model.css">
+<h3>hey </h3>
+
+<% 
+    let categories = {};
+
+    cars.forEach(function(car) {
+        if (!categories[car.category]) {
+            categories[car.category] = [];
+        }
+        categories[car.category].push(car);
+    });
+
+    for (let category in categories) {
+    %>
+    <h1>
+        <%= category %>
+    </h1>
+    <div class="list-of-cars">
+        <% categories[category].forEach(function(car) { %>
+            <div class="card">
+                <img src="<%= car.image %>" alt="Car Image" class="card-img">
+                <div class="card-content">
+                    <h2 class="card-title">
+                        <%= car.name %>
+                    </h2>
+                    <div class="card-details">
+                        <p>
+                            <%= car.model %>
+                        </p>
+                        <p>
+                            <%= car.year %>
+                        </p>
+                        <p>
+                            <%= car.price %>
+                        </p>
+                        <p>
+                            <%= car.zto60 %>
+                        </p>
+                        <p>
+                            <%= car.speed %>
+                        </p>
+                        <p>
+                            <%= car.description %>
+                        </p>
+                        <p>
+                            <%= car.range %>
+                        </p>
+                        <p>
+                            <%= car.rearLuggage %>
+                        </p>
+                        <p>
+                            <%= car.color %>
+                        </p>
+                        <p>
+                            <%= car.horsepower %>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    <% } %>
+        </div>
