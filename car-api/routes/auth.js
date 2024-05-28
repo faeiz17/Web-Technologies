@@ -1,8 +1,14 @@
-import express from "express"
+import express from "express";
+import session from "express-session";
 import bcrypt from "bcrypt";
+import User from "../model/User.js";
 
-let authRoute = express.Router()
-import User from "../model/User.js"
+const authRoute = express.Router();
+authRoute.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true
+}));
 
 authRoute.get("/user-register", (req, res) => {
     console.log("yeah")
@@ -33,9 +39,9 @@ authRoute.post("/user-register", async(req, res) => {
         const newUser = new User({ name, email, password: hashedPassword, roles });
 
         // Save the new user to the database
-        await newUser.save();
+        req.session.user = newUser;
 
-        res.redirect("/login/user-login");
+        res.redirect("/admin/cars");
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internal server error" });
@@ -73,7 +79,9 @@ authRoute.post("/user-login", async(req, res) => {
 
         // Check if user has a role
         if (user.roles) {
-            return res.redirect("/admin/cars");
+            req.session.user = user;
+
+            res.redirect("/admin/cars");
         } else {
             return res.redirect("/homepage");
         }

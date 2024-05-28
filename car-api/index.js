@@ -9,7 +9,12 @@ import methodOverride from "method-override";
 import expressSession from "express-session"
 import checkAuth from "./middlewares/check-auth.js"
 
+import cookieParser from "cookie-parser"
+
+
+
 const app = express();
+app.use(cookieParser())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));

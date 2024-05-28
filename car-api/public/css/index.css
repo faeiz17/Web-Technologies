@@ -46,7 +46,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a {
     font-family: "SK Porsche"!important;
     padding: 0;
     margin: 0;
@@ -104,7 +105,7 @@ h2 {
 }
 
 .navbar {
-    width: 100%;
+    width: 90%;
     color: white;
     background-color: transparent;
     display: flex;
@@ -113,7 +114,7 @@ h2 {
     align-items: center;
     margin: 5px;
     z-index: 1000;
-    position: absolute;
+    position: relative;
 }
 
 .side-menu {
@@ -146,7 +147,7 @@ h2 {
         left: -400px;
     }
     to {
-        left: 0px;
+        left: 0;
     }
 }
 
@@ -184,7 +185,7 @@ h2 {
 
 @keyframes logos {
     from {
-        left: 0px;
+        left: 0;
     }
     to {
         top: 50px;
@@ -192,22 +193,15 @@ h2 {
 }
 
 .bgvideo {
-    width: 100%;
-    height: 720px;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 0px;
-    box-shadow: 0 0px 10px 0 var(--seccolor);
+    object-fit: cover;
+    margin-bottom: 0;
 }
 
 .videoactual {
     top: 0;
     left: 0;
-    height: 720px;
-    margin-bottom: 0px;
     position: absolute;
     width: 100%;
-    object-fit: cover;
 }
 
 .bgvideo p {

@@ -129,6 +129,7 @@
                     <form action="/admin/cars/delete/<%= car.id %> " method="POST" onsubmit="return confirmDelete()">
                         <button type="submit" class="delete-button">DELETE</button>
                     </form>
+                    <button onclick="window.location.href = `/user-logout`"></button>
                 </div>
             </div>
             <% }) %>

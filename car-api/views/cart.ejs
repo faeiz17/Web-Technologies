@@ -1,0 +1,68 @@
+<h1 style="text-align: center;">
+    Your Cart</h1>
+<div class="list-of-cars">
+    <% cartItems.forEach(function(car) { %>
+        <div class="card">
+            <img src="<%= car.image %>" alt="Car Image" class="card-img">
+            <div class="card-content">
+                <h2 class="card-title">
+                    <%= car.name %>
+                </h2>
+                <div class="card-details">
+                    <p>
+                        <%= car.model %>
+                    </p>
+                    <p>
+                        <%= car.year %>
+                    </p>
+                    <p>
+                        <%= car.price %>
+                    </p>
+                    <p>
+                        <%= car.zto60 %>
+                    </p>
+                    <p>
+                        <%= car.speed %>
+                    </p>
+                    <p>
+                        <%= car.description %>
+                    </p>
+                    <p>
+                        <%= car.range %>
+                    </p>
+                    <p>
+                        <%= car.rearLuggage %>
+                    </p>
+                    <p>
+                        <%= car.color %>
+                    </p>
+                    <p>
+                        <%= car.horsepower %>
+                    </p>
+                    <button class="remove-from-cart" data-car-id="<%= car._id %>">Remove from Cart</button>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+</div>
+<a href="/checkout" class="checkout-button">Proceed to Checkout</a>
+<script>
+    $(document).ready(function() {
+        $('.remove-from-cart').click(function() {
+            var carId = $(this).attr('data-car-id');
+            $.ajax({
+                url: '/remove-from-cart',
+                method: 'POST',
+                data: {
+                    carId: carId
+                },
+                success: function(response) {
+                    if (response.success) {
+                        // Reload the page after successful removal
+                        location.reload();
+                    }
+                }
+            });
+        });
+    });
+</script>

@@ -1,5 +1,6 @@
 import express from "express"
 import Cars from "../model/car-model.js"
+import checkAuth from "../middlewares/check-auth.js"
 
 
 const route = express.Router()
@@ -91,8 +92,7 @@ const deleteCar = async(req, res) => {
 };
 
 
-
-route.get("/admin/cars", fetch)
+route.get("/admin/cars", checkAuth, fetch);
 route.post("/admin/cars/create", create)
 route.post("/admin/cars/update/:id", update)
 route.post("/admin/cars/delete/:id", deleteCar)
@@ -138,7 +138,10 @@ route.get("/homepage/model", async function(req, res) {
 });
 
 route.get("/contact-us", function(req, res) {
-    res.render("pages/contact-us", { layout: "layout", })
+    res.render("pages/contact-us", {
+
+        layout: "layout",
+    })
 })
 route.get("/porsche/center", function(req, res) {
     res.render("pages/map", { layout: "layout", })
@@ -146,7 +149,40 @@ route.get("/porsche/center", function(req, res) {
 route.get("/news/maccan", function(req, res) {
     res.render("pages/front-news", { layout: "layout", Heading: "The new electric maccan", firstcarimage: "https://images-porsche.imgix.net/-/media/F44BDF5A72164B019EA267F0FB7051F3_6C7B7BF3D5AB480CAC00F2CD5FFBC453_macan-turbo-front?w=704&q=85&auto=format", secondcarimage: "https://images-porsche.imgix.net/-/media/F44BDF5A72164B019EA267F0FB7051F3_6C7B7BF3D5AB480CAC00F2CD5FFBC453_macan-turbo-front?w=704&q=85&auto=format", thirdcarimage: "https://images-porsche.imgix.net/-/media/F44BDF5A72164B019EA267F0FB7051F3_6C7B7BF3D5AB480CAC00F2CD5FFBC453_macan-turbo-front?w=704&q=85&auto=format" })
 })
+route.get('/cart', async(req, res) => {
+    let cart = req.cookies.cart ? JSON.parse(req.cookies.cart) : [];
 
+    try {
+        const cartItems = await Cars.find({ _id: { $in: cart } });
+        console.log(cartItems);
+        res.render('cart', { cartItems, layout: "layout" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+route.post('/add-to-cart', (req, res) => {
+    const carId = req.body.carId;
+    let cart = req.cookies.cart ? JSON.parse(req.cookies.cart) : [];
+
+    cart.push(carId);
+    res.cookie('cart', JSON.stringify(cart), { httpOnly: true });
+    res.send({ success: true });
+});
+route.post('/remove-from-cart', (req, res) => {
+    const carId = req.body.carId;
+    let cart = req.cookies.cart ? JSON.parse(req.cookies.cart) : [];
+
+    // Remove the carId from the cart array
+    cart = cart.filter(id => id !== carId);
+
+    // Update the cart cookie
+    res.cookie('cart', JSON.stringify(cart), { httpOnly: true });
+
+    // Send success response
+    res.send({ success: true });
+});
 
 
 route.get("/news/future", function(req, res) {
