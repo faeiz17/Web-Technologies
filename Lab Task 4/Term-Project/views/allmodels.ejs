@@ -1,0 +1,43 @@
+<style>
+    .car {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+    }
+</style>
+<div id="display-all-models"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        const url = 'http://localhost:8000/all-models';
+
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function(data) {
+                console.log('Data fetched:', data); // Debugging statement
+                const carList = $('#display-all-models');
+                data.forEach(function(car) {
+                    const carHtml = `
+                        <div class="car">
+                            <h2>${car.model}</h2>
+                            <img src="${car.image}" alt="${car.model}" width="200">
+                            <p><strong>Price:</strong> $${car.price}</p>
+                            <p><strong>Year:</strong> ${car.year}</p>
+                            <p><strong>0 to 60 mph:</strong> ${car.zto60}</p>
+                            <p><strong>Top Speed:</strong> ${car.speed}</p>
+                            <p><strong>Description:</strong> ${car.description}</p>
+                            <p><strong>Color:</strong> ${car.color}</p>
+                            <p><strong>Horsepower:</strong> ${car.horsepower}</p>
+                        </div>
+                    `;
+                    carList.append(carHtml);
+                });
+            },
+            error: function(error) {
+                console.log('Error fetching data:', error);
+            }
+        });
+    });
+</script>

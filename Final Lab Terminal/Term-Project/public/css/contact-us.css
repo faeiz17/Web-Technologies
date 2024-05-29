@@ -1,0 +1,41 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.enter-data {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 20px;
+}
+
+.enter-data label {
+    text-align: left;
+    padding-right: 10px;
+}
+
+.enter-data input,
+.enter-data textarea,
+select,
+option,
+button {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.enter-data textarea {
+    resize: vertical;
+}
+
+.error {
+    border: 2px solid red;
+}

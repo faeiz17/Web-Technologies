@@ -1,0 +1,37 @@
+<form>
+    <div class="enter-data">
+        <label for="Salutation">Salutation:</label>
+        <select name="Salutation" id="salutation">
+      <option value="">Select an option</option>
+      <option value="Mr.">Mr.</option>
+      <option value="Mrs.">Mrs.</option>
+      <option value="Ms.">Ms.</option>
+    </select>
+        <label for="First-Name">First Name*</label>
+        <input type="text" name="First-Name" id="firstname" required>
+        <label for="Last-Name">Last Name*</label>
+        <input type="text" name="Last-Name" id="lastname" required>
+        <label for="Email">Email*</label>
+        <input type="email" name="Email" id="email" required>
+        <label for="Phone-number">Phone number</label>
+        <input type="number" name="Phone-number" id="phonenumber">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea>
+        <input type="submit" id="submitbtn" value="submit">
+    </div>
+    </div>
+</form>
+<script>
+    document.getElementById("submitbtn").onclick = function(event) {
+        const firstname = document.getElementById("firstname");
+        if (firstname.value == "Muhammad faeiz") {
+
+            console.log(`Thank you for submitting the form`)
+        } else {
+            event.preventDefault();
+            firstname.classList.add("error")
+
+        }
+
+    }
+</script>

@@ -1,0 +1,16 @@
+<style>
+    .error {
+        border: 5px solid red !important
+    }
+</style>
+<form action="" method="post">
+
+
+    <div class="enter-data">
+        Email: <input class="<%= error ? 'error' : '' %>" type="text" name="email" value="usman@usman.com"> <br /> Password: <input class="<%= error ? 'error' : '' %>" type="password" name="password"> <br />
+
+
+
+        <input type="submit" value="Login" onclick="checkError(event)"> <br />
+    </div>
+</form>

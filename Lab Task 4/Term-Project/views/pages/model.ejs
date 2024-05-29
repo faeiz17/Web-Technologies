@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="/css/model.css">
+<nav id='menu'>
+    <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+    <ul>
+        <li><a href='/homepage/model?names=Cayman,Boxter,Spyder,Cayman%20G'>Cayman</a></li>
+        <li><a href='/homepage/model?names=Cayman,Boxter,Spyder,Cayman%20G'>Carrera</a></li>
+        <li><a href='/homepage/model?names=Cayman,Boxter,Spyder,Cayman%20G'>Taycan</a></li>
+        <li><a href='/homepage/model?names=Cayman,Boxter,Spyder,Cayman%20G'>Panamera</a></li>
+        <li><a href='/homepage/model?names=Cayman,Boxter,Spyder,Cayman%20G'>Macan</a></li>
+        <li><a href='/homepage/model?names=Cayman,Boxter,Spyder,Cayman%20G'>Cayenne</a></li>
+    </ul>
+    <div class="fa fa-cart-arrow-down">
+
+    </div>
+</nav>
+<% 
+    let categories = {};
+
+    cars.forEach(function(car) {
+        if (!categories[car.category]) {
+            categories[car.category] = [];
+        }
+        categories[car.category].push(car);
+    });
+
+    for (let category in categories) {
+    %>
+    <h1>
+        <%= category %>
+    </h1>
+    <div class="list-of-cars">
+        <% categories[category].forEach(function(car) { %>
+            <div class="card">
+                <img src="<%= car.image %>" alt="Car Image" class="card-img">
+                <div class="card-content">
+                    <h2 class="card-title">
+                        <%= car.name %>
+                    </h2>
+                    <div class="card-details">
+                        <p>
+                            <%= car.model %>
+                        </p>
+                        <p>
+                            <%= car.year %>
+                        </p>
+                        <p>
+                            <%= car.price %>
+                        </p>
+                        <p>
+                            <%= car.zto60 %>
+                        </p>
+                        <p>
+                            <%= car.speed %>
+                        </p>
+                        <p>
+                            <%= car.description %>
+                        </p>
+                        <p>
+                            <%= car.range %>
+                        </p>
+                        <p>
+                            <%= car.rearLuggage %>
+                        </p>
+                        <p>
+                            <%= car.color %>
+                        </p>
+                        <p>
+                            <%= car.horsepower %>
+                        </p>
+
+                    </div>
+                    <button onclick="addToCart('<%= car.id %>')">Add to Cart</button>
+
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    <% } %>
+        </div>
+        <button onclick="window.location.href = `/cart`">cart</button>
+        <script>
+            function updatemenu() {
+                if (document.getElementById('responsive-menu').checked == true) {
+                    document.getElementById('menu').style.borderBottomRightRadius = '0';
+                    document.getElementById('menu').style.borderBottomLeftRadius = '0';
+                } else {
+                    document.getElementById('menu').style.borderRadius = '10px';
+                }
+            }
+        </script>
+        <script>
+            function addToCart(carId) {
+                fetch('/add-to-cart', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            carId: carId
+                        })
+                    }).then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Car added to cart!');
+                        } else {
+                            alert('Failed to add car to cart.');
+                        }
+                    });
+            }
+        </script>

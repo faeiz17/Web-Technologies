@@ -1,0 +1,190 @@
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica;
+}
+
+nav {
+    height: 100px;
+    width: auto;
+    display: flex;
+    background-color: black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav img {
+    height: 80px;
+}
+
+.list-of-cars {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+}
+
+h3,
+h1,
+h2,
+h3,
+h4,
+h6,
+h5 {
+    text-transform: capitalize;
+    margin: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    /* Adjust the width as needed */
+}
+
+h1 {
+    text-transform: capitalize;
+    margin: 10PX;
+    text-align: center;
+}
+
+
+/* Style the scrollbar track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Change the background color as needed */
+}
+
+
+/* Style the scrollbar thumb */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Change the color of the scrollbar thumb */
+}
+
+.card {
+    text-transform: capitalize;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 300px;
+    height: 800px;
+    transition: transform 0.2s;
+    scroll-behavior: smooth;
+    scrollbar-width: 2px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.card-details {
+    color: #888;
+    font-size: 1.2em;
+    margin: 10px 0 0;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.enter-data {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 20px;
+}
+
+.enter-data label {
+    text-align: left;
+    padding-right: 10px;
+}
+
+.enter-data input,
+.enter-data textarea,
+select,
+option {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.enter-data textarea {
+    resize: vertical;
+}
+
+.add-button {
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+.delete-button {
+    padding: 10px;
+    background-color: red;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.edit-button {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 10px;
+    background-color: skyblue;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    text-decoration: none;
+}
+
+.edit-button :hover {
+    opacity: 0.7;
+}
