@@ -90,7 +90,24 @@ const deleteCar = async(req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 };
+const fetchCars = async(req, res) => {
+    try {
+        const cars = await Cars.find();
+        if (cars.length === 0) { // Updated the condition to check the length of cars array
+            return res.status(404).json({ message: "No Cars in the collection" });
+        }
+        res.status(200).json(cars); // Send cars as JSON response
+    } catch (error) {
+        res.status(500).json({
+            error: "internal server error"
+        });
+    }
+};
+route.get("/show-all-models", function(req, res) {
+    res.render("allmodels", { layout: "layout" })
+})
 
+route.get("/all-models", fetchCars);
 
 route.get("/admin/cars", checkAuth, fetch);
 route.post("/admin/cars/create", create)
@@ -116,7 +133,8 @@ const editCar = async(req, res) => {
 route.get("/admin/cars/edit/:id", editCar);
 
 route.get('/homepage', function(req, res) {
-    res.render('homepage', { layout: 'layout', })
+
+    res.render('homepage', { layout: 'layout' })
 })
 
 route.get("/homepage/model", async function(req, res) {
@@ -208,5 +226,29 @@ route.get("/news/history", function(req, res) {
     })
 })
 
+
+route.get("/search", async function(req, res) {
+    try {
+        const names = req.query.names;
+        let history = req.cookies.history
+        if (!history) {
+            history = []
+        }
+        history.push(names)
+        res.cookie("history", history)
+
+        // Perform the database query with the provided names
+        const cars = await Cars.find({
+            name: { $regex: names, $options: 'i' }
+        });
+
+        console.log(cars);
+        res.render("pages/model", { layout: "layout", cars: cars });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+})
 
 export default route;

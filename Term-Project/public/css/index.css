@@ -46,11 +46,14 @@ h2,
 h3,
 h4,
 h5,
-h6,
 a {
     font-family: "SK Porsche"!important;
     padding: 0;
-    margin: 0;
+    margin: 5px;
+}
+
+h6 {
+    margin: 3px;
 }
 
 button:hover {
@@ -189,6 +192,48 @@ h2 {
     }
     to {
         top: 50px;
+    }
+}
+
+.right-sidebar {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 0px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #140F0F;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    a {
+        margin: 10px;
+        width: 100%;
+        text-decoration: none;
+        font-size: 16px !important;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        height: 25px;
+    }
+    a:hover {
+        background-color: #720907;
+    }
+    .parent {
+        margin-top: 50px;
+        .search {
+            padding: 3px;
+            border: none;
+            border-radius: 10px;
+        }
+        span {
+            padding-right: 50px;
+            float: inline-end;
+        }
     }
 }
 

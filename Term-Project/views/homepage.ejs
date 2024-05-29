@@ -15,25 +15,7 @@
             <div class="Complete-Documnet">
 
                 <div class="topsection ">
-                    <nav class="navbar">
 
-
-                        <div>
-                            <h3><i class="fa fa-user" id="user"></i></h3>
-                        </div>
-                        <div>
-                            <h3><img class="logo-img" src="/media/logo.png" alt="logo">
-                                <a href="/index.html"></a>
-                            </h3>
-                        </div>
-                        <div>
-                            <h3 onclick="window.location.href = `/cart`"><i class="fa fa-cart-arrow-down"></i></h3>
-                        </div>
-
-
-
-
-                    </nav>
 
                     <div class="bgvideo">
 
@@ -378,15 +360,53 @@
         </div>
     </div>
 </section>
+<!-- featured products -->
 
 
-<!-- <section class="vid">
-    <div class="holder">
-        <video class="vid-scrub" src="/media/vscrub.mp4" autoplay loop muted playinline>
+<section class="featured-products">
+    <h2>Featured products</h2>
+    <div class="featured-products" id="featured-products"></div>
+</section>
 
-    </video>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        const url = 'http://localhost:8000/featured/featured-products';
 
-    </div>
+        function handleSeeMoreClick(productId) {
+            window.location.href = `http://localhost:8000/featured/products/${productId}`;
+        }
 
-    <div style="height: 100%; width:100%;background-color:black ;position:'absolute';"></div>
-</section> -->
+
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function(data) {
+                console.log('Data fetched:', data); // Debugging statement
+                const productList = $('#featured-products');
+
+                data.forEach(function(product) {
+                    const productHtml = `
+                        <div class="product" style="margin:20px ;background: #D8AB23;">
+                            <h1>${product.name}</h1>
+                            <img src="${product.image}" alt="${product.name}" width="200">
+                            <p><strong>Price:</strong> $${product.price}</p>
+                            <p><strong>Description:</strong> ${product.description}</p>
+                            <p><strong>Category:</strong> ${product.category}</p>
+                            <button class="see-more-btn" data-product-id="${product._id}">See More...</button>
+                        </div>
+                    `;
+
+                    productList.append(productHtml);
+                });
+                $('.see-more-btn').click(function() {
+                    const productId = $(this).data('product-id');
+                    handleSeeMoreClick(productId);
+                });
+            },
+            error: function(error) {
+                console.log('Error fetching data:', error);
+            }
+        });
+    });
+</script>

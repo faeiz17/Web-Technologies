@@ -1,9 +1,9 @@
-<h1 style="text-align: center;">
-    Your Cart</h1>
+<h2 style="text-align: center;">
+    Your Cart</h2>
 <div class="list-of-cars">
     <% cartItems.forEach(function(car) { %>
         <div class="card">
-            <img src="<%= car.image %>" alt="Car Image" class="card-img">
+            <img src="<%= car.image %>" alt="Car Image" class="card-img" style="width: 200px;">
             <div class="card-content">
                 <h2 class="card-title">
                     <%= car.name %>

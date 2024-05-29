@@ -33,6 +33,20 @@ $(document).ready(function() {
 
 });
 
+function openRightSideBar() {
+    document.getElementById("right-sidebar").style.width = "500px"
+}
+
+function closeRightSideBar() {
+
+    document.getElementById("right-sidebar").style.width = "0px"
+}
+
+function displaySearchReseults() {
+    const search = document.getElementById('search').value
+    window.location.href = `/search?names=${search}`
+}
+
 
 
 document.getElementById("loginButton").onclick = function() {
